@@ -61,6 +61,8 @@ body {
 
     font-family: 'Outfit', sans-serif;
 }
+
+
 .paragraph h1 {
     color: #FFF;
     font-family: Outfit;
@@ -95,16 +97,27 @@ body {
 }
 
 .paragraph button:hover {
-    transform: translateX(10px);
-    transform: translateY(5px);
+    transform: translate(5px,5px);
+    box-shadow: 0;
     transition: 0.4s;
 }
 .section-1 {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 3rem;
+    margin-bottom: 60px;
+    flex-flow: row;
+    flex-wrap: wrap;
 }
 
+.section-2 {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 150px;
+    flex-flow: row;
+    flex-wrap: wrap;
+}
 @media only screen and (max-width: 599px) {
     .navigation-bar > div {
         display: none;
