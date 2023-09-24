@@ -6,12 +6,10 @@ const demoData = [
     {name: "name4", description: "hello", view: 100}
 ]
 // render note
-export function renderNote(datas) {
+function renderNote(datas) {
+    console.log("script loaded")
     datas.map(data => {
         const note = document.createElement("div");
-        note.onclick = function() {
-            window.location.href = `/note-view.html?id=${noteId}`;  // Assuming noteId is the unique identifier for this note
-        };
         note.innerHTML = 
         `   
             <img src = "../assets/graduate.png"/>
@@ -27,5 +25,6 @@ export function renderNote(datas) {
         note_list.appendChild(note);
     })
 };
+
 
 
