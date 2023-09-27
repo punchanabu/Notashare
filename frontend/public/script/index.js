@@ -1,4 +1,4 @@
-// main script to render component for each routes
+
 function renderAboutPage() {
     document.getElementById("app").innerHTML = 
     `
@@ -71,10 +71,14 @@ function renderNoteList() {
     document.getElementById('app').innerHTML = 
     `
     <div style = "display: flex; justify-content: flex-end;">
-        <input id = "search" placeholder=" ค้นหาสมุดโน็ต"/>
+        <input id = "search" placeholder=" ค้นหาสมุดโน็ต" />
     </div>
     <section id = "note-list"></section>
-    `;
+    `;  
+    // Attach JavaScript event listener to the input element
+    document.getElementById('search').addEventListener('input', function() {
+        renderNote(demoData, this.value);
+    });
     var script = document.createElement('script');
     script.src = '../script/renderNote.js';
     script.onload = function() {
@@ -86,6 +90,13 @@ function renderNoteList() {
   function renderUploadPage() {
     document.getElementById('app').innerHTML = 
     `
+    <div class = content-share-note>
+        <input class = "content-share-note-input" placeholder = "name"></input>
+        <div>
+            <button>add photo</button>
+            <button>add tag</button>
+        </div>
+    </div>
     `;
   }
 

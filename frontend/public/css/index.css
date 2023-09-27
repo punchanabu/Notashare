@@ -407,6 +407,7 @@ body {
     font-weight: bold;
     width: 15rem;
     height: 2rem;
+    opacity: 80%;
     font-size: 1rem;
 }
 #search::-webkit-input-placeholder {
@@ -467,4 +468,25 @@ footer > div > a:hover {
     transition: 0.4s;
     text-decoration: underline;
     cursor: pointer;
+}
+
+
+.content-share-note {
+    padding: 16px;
+    border-radius: 20px;
+    background-image: linear-gradient(90deg, rgba(170, 170, 229, 1) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+.content-share-note-input {
+    background-color: #424281;
+    padding: 16px;
+    border-radius: 20px;
+    color: rgb(255, 255, 255);
+    border: 0;
+    font-family: 'Roboto';
+    font-size: 20px;
+}
+
+.content-share-note-input:focus {
+    border: 0;
 }

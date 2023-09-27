@@ -1,3 +1,4 @@
+
 // metadata
 const demoData = [
     {name: "Circular Motion", description: "Circular motion is the movement of an object along the circumference of a circle, maintaining a constant distance from a central point while experiencing a centripetal force that keeps it on its path.", view: 90},
@@ -6,8 +7,15 @@ const demoData = [
     {name: "name4", description: "hello", view: 100}
 ]
 // render note
-function renderNote(datas) {
+async function renderNote(datas,search = 0) {
     console.log("script loaded")
+    const note_list = document.getElementById("note-list");
+    while(note_list.firstChild) {
+        note_list.removeChild(note_list.firstChild);
+    }
+    if (search && search != "") {
+        datas = datas.filter(data => data.name.toLowerCase().includes(search.toLowerCase()));
+    }
     datas.map(data => {
         const note = document.createElement("div");
         note.innerHTML = 
@@ -21,9 +29,9 @@ function renderNote(datas) {
             </div>
         `
         note.className = "box";
-        const note_list = document.getElementById("note-list");
         note_list.appendChild(note);
     })
+
 };
 
 
