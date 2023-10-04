@@ -1,6 +1,6 @@
 const backend_uri = "http://localhost:3222";
 
-// fetching all note
+// getting all note
 export async function fetchNotes() {
     try {
         
@@ -17,7 +17,7 @@ export async function fetchNotes() {
     }
 };
 
-// fetching the note by id
+// getting the note by id
 export async function fetchNoteById(id) {
     try {
         const response = await fetch(backend_uri + '/notes/' + id + '/');
@@ -49,5 +49,21 @@ export async function postNote(formData) {
     };
 };
 
+// getting all tags
+
+export async function fetchTags() {
+    try {
+        const response = await fetch(backend_uri + '/tags/');
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        return data;
+        
+    } catch(error) {
+        console.error(`Error fetching notes with id${id}`, error);
+        throw error;
+    }
+}
 
 

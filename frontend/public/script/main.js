@@ -1,13 +1,15 @@
-import { renderAboutPage,renderNoteList,renderUploadPage,renderViewNote } from "./render/page.js";
+import { about } from "./render/about.js";
+import { notelist } from "./render/notelist.js";
+import { renderUploadPage } from "./render/upload.js";
+import { renderViewNote } from "./render/view.js"
 // client side rendering 
 // render about page
 
   window.addEventListener('hashchange', function() {
     if (window.location.hash === '#about') {
-      renderAboutPage();
+      about();
     } else if (window.location.hash === '#note-list') {
-    
-      renderNoteList();
+      notelist();
     } else if (window.location.hash === '#upload') {
       renderUploadPage();
     } else if (window.location.hash.startsWith('#note-view:')) {

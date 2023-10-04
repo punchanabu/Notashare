@@ -433,6 +433,55 @@ body {
     }
 }
 
+.drop-down-tag {
+  width: 200px;
+  position: relative;
+}
+
+#selected-option {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#tag-search {
+  display: none;
+  position: absolute;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  z-index: 99;
+  margin-bottom: 30px;
+  padding: 25px 30px;
+  border-radius: 13px;
+  background: rgba(51, 42, 118, 0.40);
+  border: 0;
+  color: white;
+  font-family: 'Roboto';
+  font-weight: bold;
+  width: 15rem;
+  height: 2rem;
+  opacity: 80%;
+  font-size: 1rem;
+  margin-right: 10px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+#tag-search.open {
+    max-height: 500px;  
+    transition: max-height 0.5s ease-in;
+}
+.option {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.option:hover {
+  background-color: #f0f0f0;
+}
+  
 footer {
     margin-top: 120px;
 }

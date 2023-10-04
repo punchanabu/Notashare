@@ -1,4 +1,6 @@
-async function renderViewNote(id) {
+import { fetchNoteById } from "../api.js";
+
+export async function renderViewNote(id) {
     // initialize
     let page_num = 0;
     const data = await fetchNoteById(id);
@@ -9,14 +11,14 @@ async function renderViewNote(id) {
     render(data,imgUri,dateCreate);
 
     // update image
-    updateImage(page_num);
+    updateImage(data,page_num);
 
     // handle previous button
     const prevButton = document.getElementById("prev");
     prevButton.addEventListener('click', function () {
         if(!page_num) return 0;
         page_num--;
-        updateImage(page_num);
+        updateImage(data,page_num);
     })
     
     // handle next button
@@ -27,7 +29,7 @@ async function renderViewNote(id) {
             return 0;
         }
         page_num++;
-        updateImage(page_num);
+        updateImage(data,page_num);
     })
 
 }
@@ -61,7 +63,7 @@ const render = (data,imgUri,dateCreate) => {
 }
 
 // update image
-const updateImage = (page_num) => {
+const updateImage = (data,page_num) => {
     const imgElement = document.querySelector('.note-container img');
     imgElement.src = `http://localhost:3222/files/${data.attachments[page_num]}`;
 }

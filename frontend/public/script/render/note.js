@@ -1,4 +1,4 @@
-export const renderNote = (datas,query = 0) => {
+export const renderNote = (datas,query = 0, mode = "") => {
 
     const note_list = document.getElementById("note-list");
 
@@ -6,7 +6,7 @@ export const renderNote = (datas,query = 0) => {
     clear(note_list);
 
     // for filtering all notes every render for searching notes
-    datas = filter(datas,query);
+    datas = filter(datas,query,mode);
 
     // for appending all notes every render
     appendNote(datas,note_list);
@@ -35,10 +35,16 @@ const appendNote = (datas,list) => {
 
 }
 
-const filter = (datas,query) => {
+const filter = (datas,query,mode = "") => {
     if (query && query != "") {
-        datas = datas.filter(data => data.name.toLowerCase().includes(query.toLowerCase()));
+        if(mode == "tag") {
+            datas = datas.filter(data => data.tags.includes(query));
+        }
+        else {
+            datas = datas.filter(data => data.name.toLowerCase().includes(query.toLowerCase()));
+        }
     }
+
     return datas
 }
 

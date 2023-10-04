@@ -24,16 +24,18 @@ export const handleSubmit = () => {
     
     const name = document.getElementById('content-share-note-input').value;
     const description = document.getElementById('content-share-note-description').value;
-    const tag = document.getElementById('content-share-note-tag').value;
+    const tags = document.getElementById('content-share-note-tag').value;
 
     const noteData = {
         name,
         description,
-        tag
+        tags
     }
 
-    const fileInputs = document.querySelectorAll('input[type=file]');
-    const files = Array.from(fileInputs).map(input => input.files[0]).filter(Boolean);
+    const fileInputs = document.getElementById('fileInput'); ;
+    console.log("fileInput: ", fileInput);  // Debugging line
+    console.log("fileInput.files: ", fileInput.files);  // Debugging line
+    const files = Array.from(fileInputs.files)
 
     create(noteData,files)
 }
